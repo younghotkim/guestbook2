@@ -7,7 +7,7 @@
 
 
 <%
-	
+
 	List<GuestbookVo> guestbookList = (List<GuestbookVo>)request.getAttribute("gList");
 	
     System.out.println("==========JSP=========");
@@ -29,7 +29,7 @@
 </head>
 <body>
 			
-	<form action="/guestbook2/gbc" method="get">
+	<form action="/guestbook2/gbc" method="post">
 	
 		이름: <input type="text" name="name" value=""> 비밀번호: <input type="password" name="password" value="">
 		<br><br>
@@ -50,6 +50,7 @@
 	
 	<%
 		for(int i=0; i<guestbookList.size(); i++) {
+					
 	%>
 	
 			<table border="1" width="500" height="200" align = "center"> 

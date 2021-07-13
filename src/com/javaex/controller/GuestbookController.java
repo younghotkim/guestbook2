@@ -18,7 +18,9 @@ import com.javaex.vo.GuestbookVo;
 public class GuestbookController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		request.setCharacterEncoding("UTF-8");
+		//post시 한글깨짐방지
 		System.out.println("컨트롤러");
 		
 		String action = request.getParameter("action");
@@ -42,7 +44,7 @@ public class GuestbookController extends HttpServlet {
 			}else if("insert".equals(action)) {
 				
 				System.out.println("===등록===");
-				
+
 				String name = request.getParameter("name");
 				String password = request.getParameter("password");
 				String content = request.getParameter("content");
