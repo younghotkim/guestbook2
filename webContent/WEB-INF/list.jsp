@@ -29,7 +29,7 @@
 </head>
 <body>
 			
-	<form action="./insert.jsp" method="get">
+	<form action="/guestbook2/gbc" method="get">
 	
 		이름: <input type="text" name="name" value=""> 비밀번호: <input type="password" name="password" value="">
 		<br><br>
@@ -37,7 +37,7 @@
 		
 		<!-- name값 조심해서 입력 -->
 	
-		
+		<input type="text" name="action" value="insert">
 		<button type="submit">등록</button>
 	
 	</form>
@@ -58,7 +58,7 @@
 					<td><%=guestbookList.get(i).getNo() %></td>
 					<td><%=guestbookList.get(i).getName() %></td>
 					<td><%=guestbookList.get(i).getReg_date()%></td>
-					<td><a href="./deleteForm.jsp?no=<%=guestbookList.get(i).getNo()%>">[삭제]</a></td>
+					<td><a href="/guestbook2/gbc?action=dform&no=<%=guestbookList.get(i).getNo()%>">[삭제]</a></td>
 				</tr>
 					<td colspan ="4"><%=guestbookList.get(i).getContent() %></td>
 				<tr>

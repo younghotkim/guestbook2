@@ -38,7 +38,7 @@ public class GuestbookController extends HttpServlet {
 			
 		}else if("insert".equals(action)) {
 			
-			System.out.println("등록");
+			System.out.println("===등록===");
 			
 			String name = request.getParameter("name");
 			String password = request.getParameter("password");
@@ -85,9 +85,12 @@ public class GuestbookController extends HttpServlet {
 				
 				
 			} else if ("dform".equals(action)) {
+			
+			System.out.println("===삭제폼===");
+				
 			//파라미터에서 no꺼내기
 			int no = Integer.parseInt(request.getParameter("no"));
-			
+			//no를 어트리뷰트에 담아서 포워드
 			request.setAttribute("no", no);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/deleteForm.jsp");

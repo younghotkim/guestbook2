@@ -27,16 +27,18 @@
 </head>
 <body>
 
-	<form action="delete.jsp" method="get">
+	<form action="/guestbook2/gbc" method="get">
 	
 	비밀번호 <input type="password" name="password" value="">
 	<input type="hidden" name="no" value="<%=no%>">
-	
+	<input type="hidden" name="action" value="delete">
+
 	<button type="submit">확인</button>
+	
 	
 	</form>
 	
- <p><a href="./list.jsp">처음으로 돌아가기</a></p>
+ <p><a href="/guestbook2/gbc?action=list">처음으로 돌아가기</a></p>
 	
 </body>
 </html>
