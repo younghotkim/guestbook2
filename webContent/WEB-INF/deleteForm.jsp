@@ -9,10 +9,10 @@
 
 	
 	
-	int no = (int)request.getAttribute("no");	
+	int no = (int)request.getAttribute("guestNo");	
 	//어트리뷰트 받기
 	
-	
+	//어트리뷰트 받은 no를 html에서 사용
 
 
 
