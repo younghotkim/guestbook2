@@ -75,7 +75,7 @@ public class GuestbookController extends HttpServlet {
 					
 					System.out.println("삭제완료");
 					//리다이렉트 리스트 (action=list)
-					response.sendRedirect("/phonebook2/pbc?action=list");
+					response.sendRedirect("/guestbook2/gbc?action=list");
 					
 				} else {
 					
