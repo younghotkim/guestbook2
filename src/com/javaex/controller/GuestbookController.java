@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.javaex.dao.GuestbookDao;
+import com.javaex.util.WebUtil;
 import com.javaex.vo.GuestbookVo;
 
 @WebServlet("/gbc")
@@ -33,8 +34,10 @@ public class GuestbookController extends HttpServlet {
 				
 				request.setAttribute("gList", guestbookList);
 				
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/list.jsp");
-				rd.forward(request, response);
+				//RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/list.jsp");
+				//rd.forward(request, response);
+					
+				WebUtil.forward(request, response, "/WEB-INF/list.jsp");
 				
 			}else if("insert".equals(action)) {
 				
@@ -53,7 +56,10 @@ public class GuestbookController extends HttpServlet {
 					if (count > 0) {
 						System.out.println("등록완료");
 						//리다이렉트 리스트 (action=list)
-						response.sendRedirect("/guestbook2/gbc?action=list");
+						//response.sendRedirect("/guestbook2/gbc?action=list");
+						
+						WebUtil.redirect(request, response, "/guestbook2/gbc?action=list");
+						
 					} else {
 						System.out.println("등록실패");
 					} 
@@ -74,10 +80,18 @@ public class GuestbookController extends HttpServlet {
 						if (count > 0) {	
 							System.out.println("삭제완료");
 							//리다이렉트 리스트 (action=list)
-							response.sendRedirect("/guestbook2/gbc?action=list");	
+							//response.sendRedirect("/guestbook2/gbc?action=list");	
+							
+							WebUtil.redirect(request, response, "/guestbook2/gbc?action=list");
+							
 						} else {
 							
 							System.out.println("삭제실패");
+							
+							String refere = (String)request.getHeader("REFERER");
+							//이전페이지 주소 가져오는 메소드
+							WebUtil.redirect(request, response, refere);
+							//이전페이지로 리다이렉트
 						}				
 					
 					
@@ -90,8 +104,10 @@ public class GuestbookController extends HttpServlet {
 				//no를 어트리뷰트에 담아서 포워드
 				request.setAttribute("guestNo", no);
 				
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/deleteForm.jsp");
-				rd.forward(request, response);	
+				//RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/deleteForm.jsp");
+				//rd.forward(request, response);
+				
+				WebUtil.forward(request, response, "/WEB-INF/deleteForm.jsp");
 		
 			}
 
